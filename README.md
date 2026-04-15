@@ -19,11 +19,11 @@
 ## 🌟 Tính Năng Nổi Bật
 
 - **Hai chế độ vận hành**:
-    - `Check Mode`: Kiểm tra đăng nhập thần tốc cho cả máy chủ Nguồn và Đích.
+    - `Check Mode`: Kiểm tra đăng nhập thần tốc cho cả Máy chủ mail nguồn và Máy chủ mail đích.
     - `Sync Mode`: Chạy đồng bộ dữ liệu email sử dụng bộ engine `imapsync`.
 - **Đa luồng (Parallel Processing)**: Hỗ trợ xử lý song song nhiều tài khoản cùng lúc để tiết kiệm thời gian.
 - **Xác thực Admin Proxy (SASL PLAIN)**: Cho phép dùng tài quản Admin để đăng nhập thay cho người dùng (hỗ trợ Zimbra, Google Workspace, v.v.).
-- **Tối ưu hóa cho Gmail**: Tích hợp sẵn bộ flag tối ưu để migrate từ Gmail (tự động loại bỏ thư mục hệ thống như Important, Starred, v.v.).
+- **Tối ưu hóa cho Gmail (No Duplicates)**: Tích hợp sẵn bộ flag chuyên dụng để migrate từ Gmail, tự động loại bỏ các thư mục hệ thống (Important, Starred) và xử lý nhãn thông minh để tránh trùng lặp dữ liệu hoàn toàn.
 - **Giao diện hiện đại**: Sử dụng ANSI Colors và Icons giúp dễ dàng theo dõi trạng thái.
 - **Hệ thống Logs chuyên sâu**: Tự động phân tách log tổng quát và log chi tiết cho từng tài khoản.
 
@@ -47,13 +47,13 @@ Mọi cấu hình hệ thống hiện được tách riêng ra file `config.py` 
 
 | Thông số | Ý nghĩa | Ghi chú |
 | :--- | :--- | :--- |
-| `host1`, `port1` | Địa chỉ & Port máy chủ Nguồn | Mặc định 993 (SSL) |
-| `ssl1` | Sử dụng SSL/TLS cho máy nguồn | `True` hoặc `False` |
-| `authuser1` | Email Admin máy nguồn | Để trống nếu không dùng Proxy Auth |
-| `gmail1` | Chế độ Gmail máy nguồn | `1` để bật bộ flag tối ưu, `0` để tắt |
-| `host2`, `port2` | Địa chỉ & Port máy chủ Đích | |
-| `ssl2` | Sử dụng SSL/TLS cho máy đích | |
-| `authuser2` | Email Admin máy đích | Thường dùng cho Destination là Zimbra/Kerio |
+| `host1`, `port1` | Địa chỉ & Port Máy chủ mail nguồn | Mặc định 993 (SSL) |
+| `ssl1` | Sử dụng SSL/TLS cho Máy chủ mail nguồn | `True` hoặc `False` |
+| `authuser1` | Email Admin Máy chủ mail nguồn | Để trống nếu không dùng Proxy Auth |
+| `gmail1` | Chế độ Gmail Máy chủ mail nguồn | `1` để bật bộ flag tối ưu, `0` để tắt |
+| `host2`, `port2` | Địa chỉ & Port Máy chủ mail đích | |
+| `ssl2` | Sử dụng SSL/TLS cho Máy chủ mail đích | |
+| `authuser2` | Email Admin Máy chủ mail đích | Thường dùng cho Destination là Zimbra/Kerio |
 | `imapsync_bin` | Đường dẫn lệnh `imapsync` | VD: `"imapsync"` hoặc `"/usr/local/bin/imapsync"` |
 | `max_workers` | Số luồng mặc định | Kiểm soát tải cho máy chủ |
 
@@ -121,7 +121,10 @@ Khi `authuser` được thiết lập, công cụ sử dụng cơ chế **SASL P
 - Yêu cầu máy chủ IMAP phải hỗ trợ quyền Master User hoặc Admin Proxy.
 
 ### 📧 Chế độ Gmail (`gmail1: 1`)
-Khi bật chế độ này, công cụ sẽ tự động thêm các flags tối ưu cho Gmail (tự động bỏ qua các thư mục hệ thống gây trùng lặp và khớp thư mục thông minh).
+Khi bật chế độ này, công cụ sẽ tự động thêm các flags tối ưu cho Gmail:
+- **Chống trùng lặp (No Duplicate)**: Tự động loại bỏ các "nhãn" hệ thống của Google (như `[Gmail]/Important`, `[Gmail]/Starred`, `[Gmail]/All Mail`) vốn là nguyên nhân chính gây nhân bản dữ liệu khi chuyển sang Mail Server khác.
+- **Khớp thư mục thông minh**: Tự động ánh xạ các thư mục hệ thống Gmail sang đúng chuẩn của server đích.
+- **Tối ưu tốc độ**: Bỏ qua việc tính toán kích thước thư mục lớn không cần thiết của Gmail để đẩy nhanh quá trình đồng bộ.
 
 ---
 
