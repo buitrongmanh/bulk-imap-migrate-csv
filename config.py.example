@@ -1,0 +1,57 @@
+# config.py.example - File cấu hình mẫu cho imap_migrate.py
+# Copy file này thành config.py và thay đổi thông tin cho phù hợp.
+
+# ─────────────────────────────────────────────
+#  CONFIG — Chỉnh sửa tại đây
+# ─────────────────────────────────────────────
+CONFIG = {
+    # ── Source server ──────────────────────────
+    "host1": "imap.source-server.com",
+    "port1": 993,           # 993 = IMAPS (SSL), 143 = IMAP (STARTTLS/Plain)
+    "ssl1": True,           # True → dùng SSL/TLS | False → dùng kết nối không mã hóa
+    "authuser1": "",        # Bỏ trống nếu không dùng admin proxy auth
+    "gmail1": 0,            # 1 = Dùng bộ flag tối ưu cho Gmail, 0 = Dùng flag mặc định
+
+    # ── Destination server ─────────────────────
+    "host2": "imap.dest-server.com",
+    "port2": 993,
+    "ssl2": True,
+    "authuser2": "admin@dest-server.com",
+
+    # ── imapsync binary ────────────────────────
+    "imapsync_bin": "imapsync",
+
+    # ── Logging ────────────────────────────────
+    "log_dir": "logs",
+
+    # ── Parallel workers ───────────────────────
+    "max_workers": 3,
+}
+
+# imapsync flags áp dụng cho tất cả tài khoản
+IMAPSYNC_FLAGS = [
+    "--nosyncacls",
+    "--subscribe",
+    "--syncinternaldates",
+    "--nofoldersizes",
+    "--skipsize",
+]
+
+# imapsync flags tối ưu cho Gmail source
+IMAPSYNC_FLAGS_GMAIL = [
+    "--automap",
+    "--syncinternaldates",
+    "--skipcrossduplicates",
+    "--useheader=X-Gmail-Received",
+    "--useheader", "Message-Id",
+    "--nofoldersizes",
+    "--skipemptyfolders",
+    "--folderlast", "[Gmail]/All Mail",
+    "--exclude", r"\[Gmail\]/Important",
+    "--exclude", r"\[Gmail\]/Starred",
+    "--exclude", r"\[Gmail\]/Chats",
+    "--exclude", r"\[Gmail\]/Spam",
+    "--exclude", r"\[Gmail\]/Trash",
+]
+
+TIMEOUT_SEC = 10  # Timeout cho chức năng check

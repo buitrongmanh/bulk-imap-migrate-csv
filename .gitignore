@@ -1,0 +1,25 @@
+# Bỏ qua thư mục logs và các file log
+logs/
+*.log
+
+# Bỏ qua thư mục scratch
+scratch/
+.scratch/
+
+# Bỏ qua __pycache__ và các file tạm của Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+.env
+
+# Bỏ qua các file cấu hình nhạy cảm
+config.py
+
+# Bỏ qua các file hệ thống (macOS, Windows)
+.DS_Store
+Thumbs.db
