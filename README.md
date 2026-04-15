@@ -2,6 +2,18 @@
 
 `imap_migrate.py` là một công cụ mạnh mẽ được viết bằng Python, thiết kế để tự động hóa quy trình kiểm tra và chuyển đổi (migration) hàng loạt tài khoản email. Công cụ này là lớp giao diện (wrapper) chuyên nghiệp cho phần mềm `imapsync`, hỗ trợ quản lý qua file CSV và cấu hình tập trung.
 
+> [!CAUTION]
+> ### 📞 Hỗ trợ & Liên hệ Chuyên nghiệp
+> Nếu bạn cần sự giúp đỡ từ chuyên gia hoặc các dịch vụ email doanh nghiệp quy mô lớn, tôi cung cấp các gói dịch vụ sau:
+> - **Setup Email Chuyên Nghiệp**: Tư vấn và triển khai hệ thống email cho doanh nghiệp (Zimbra, Google Workspace, Microsoft 365, Mail Server riêng).
+> - **Migrate Dữ Liệu Email**: Di chuyển dữ liệu email an toàn, không gián đoạn dịch vụ với số lượng tài khoản lớn.
+> - **Cung cấp Máy Chủ Email**: Giải pháp máy chủ email riêng hiệu năng cao, bảo mật và ổn định.
+>
+> **Thông tin liên hệ:**
+> - **Bùi Mạnh**
+> - **Telegram:** [@manhbt93](https://t.me/manhbt93)
+> - **Gmail:** [buitrongmanh@gmail.com](mailto:buitrongmanh@gmail.com) (Phản hồi trong vòng 1h)
+
 ---
 
 ## 🌟 Tính Năng Nổi Bật
@@ -126,17 +138,3 @@ Toàn bộ quá trình được lưu lại trong thư mục `logs/` (cấu hình
 - `0`: Tất cả tài khoản xử lý thành công.
 - `1`: Có ít nhất một tài khoản bị lỗi hoặc gặp lỗi hệ thống.
 
----
-
-## 📞 Hỗ trợ & Liên hệ Chuyên nghiệp
-
-> [!IMPORTANT]
-> Nếu bạn cần sự giúp đỡ từ chuyên gia hoặc các dịch vụ email doanh nghiệp quy mô lớn, tôi cung cấp các gói dịch vụ sau:
-> - **Setup Email Chuyên Nghiệp**: Tư vấn và triển khai hệ thống email cho doanh nghiệp (Zimbra, Google Workspace, Microsoft 365, Mail Server riêng).
-> - **Migrate Dữ Liệu Email**: Di chuyển dữ liệu email an toàn, không gián đoạn dịch vụ với số lượng tài khoản lớn.
-> - **Cung cấp Máy Chủ Email**: Giải pháp máy chủ email riêng hiệu năng cao, bảo mật và ổn định.
-
-**Thông tin liên hệ:**
-- **Bùi Mạnh**
-- **Telegram:** [@manhbt93](https://t.me/manhbt93)
-- **Gmail:** [buitrongmanh@gmail.com](mailto:buitrongmanh@gmail.com) (Phản hồi trong vòng 1h)
