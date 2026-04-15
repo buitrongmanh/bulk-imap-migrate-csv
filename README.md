@@ -79,12 +79,18 @@ python3 imap_migrate.py <file_csv> <mode> [options]
 
 ### 1. Chế độ Kiểm tra (--check)
 Dùng để test thử mật khẩu và kết nối trước khi migrate.
+
+![Check Mode](check.png)
+
 ```bash
 python3 imap_migrate.py accounts.csv --check --workers 5
 ```
 
 ### 2. Chế độ Đồng bộ (--sync)
 Thực hiện chạy `imapsync` thực tế.
+
+![Sync Mode](sync.png)
+
 ```bash
 python3 imap_migrate.py accounts.csv --sync --workers 3
 ```
