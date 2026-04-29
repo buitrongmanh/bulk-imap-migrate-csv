@@ -52,6 +52,11 @@ IMAPSYNC_FLAGS_GMAIL = [
     "--exclude", r"\[Gmail\]/Chats",
     "--exclude", r"\[Gmail\]/Spam",
     "--exclude", r"\[Gmail\]/Trash",
+    "--exclude", r"\[Gmail\]/Quan tr&Hs0-ng",
+    "--exclude", r"\[Gmail\]/C&APM- g&Hq8-n d&HqU-u sao",
+    "--exclude", r"\[Gmail\]/Th&AbA- r&AOE-c",
+    "--exclude", r"\[Gmail\]/Th&APk-ng r&AOE-c",
+    "--exclude", r"\[Gmail\]/Th&AbA- nha&AwE-p",
 ]
 
 TIMEOUT_SEC = 10  # Timeout cho chức năng check
